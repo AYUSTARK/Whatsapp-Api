@@ -2,5 +2,5 @@ node_modules
 session.json
 temp
 components/last.qr
-package-lock.json
+/package-lock.json
 .idea
