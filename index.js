@@ -2,18 +2,20 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const fs = require('fs');
 const axios = require('axios');
+const cors = require('cors');
 const shelljs = require('shelljs');
 
 const config = require('./config.json');
 const { Client } = require('whatsapp-web.js');
 const SESSION_FILE_PATH = './session.json';
 
+app.use(cors())
 let sessionCfg;
 if (fs.existsSync(SESSION_FILE_PATH)) {
     sessionCfg = require(SESSION_FILE_PATH);
 }
 
-process.title = "whatsapp-node-api";
+process.title = "whatsapp-api";
 global.client = new Client({
     puppeteer: {
         headless: true,
